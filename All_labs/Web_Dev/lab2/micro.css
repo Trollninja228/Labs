@@ -12,7 +12,7 @@ body{
 }
 /* header */
 .Header{
-    display: flex;
+    display:flex;
     align-items: center;
     text-align: center;
     height: 60px;

@@ -1,16 +1,11 @@
-alert(2+'1');
-alert(2-'1');
-alert(+true);
+function showMessage(from, text) {
+    // If the value of text is falsy, assign the default value
+    // this assumes that text == "" is the same as no text at all
+    text = text || 'no text given';
+    console.log(from+text);
+}
 
-let a = 1, b = 1;
-
-let c = ++a; // 2
-let d = b++; // 1
-
-alert(c);
-alert(d);
+showMessage('yay ');
 
 
-let ab = 2;
 
-let x = 1 + (ab *= 2);
