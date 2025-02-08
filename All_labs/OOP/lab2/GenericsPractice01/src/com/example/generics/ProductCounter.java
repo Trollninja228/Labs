@@ -1,4 +1,3 @@
-package Labs.All_labs.OOP.lab2.GenericsPractice01.src.com.example.generics;
 
 import java.util.HashMap;
 import java.util.Map;

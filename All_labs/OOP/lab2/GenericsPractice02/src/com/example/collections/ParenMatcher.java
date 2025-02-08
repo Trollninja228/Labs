@@ -1,4 +1,3 @@
-package com.example.collections;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -51,9 +50,10 @@ public class ParenMatcher {
         
         expressions[0] = "if ((a == b) && (x != y));";
         expressions[1] = "if ((a == b) && (x != y)));";
-        expressions[2] = "if ((firstName.equals(newFirstName) && (lastName.equals(newLastName));";
+        expressions[2] = "if ((firstName.equals(newFirstName) && (lastName.equals(newLastName))));";
         expressions[3] = "if ((firstName.equals(newFirstName) && (lastName.equals(newLastName))));";
-
+        
+        System.out.println();
         pm.processArray(expressions);
     }
 }
