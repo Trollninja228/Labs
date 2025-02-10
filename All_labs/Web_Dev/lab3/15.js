@@ -1,16 +1,11 @@
-alert(2+'1');
-alert(2-'1');
-alert(+true);
 
-let a = 1, b = 1;
+// i = i ? i < 0 ? Math.max(0, len + i) : i:0;
 
-let c = ++a; // 2
-let d = b++; // 1
+elem=new Array;
+elem=[1,2,3,4,5];
+elem1=new Array();
 
-alert(c);
-alert(d);
+elem1=elem.slice();
 
-
-let ab = 2;
-
-let x = 1 + (ab *= 2);
+elem1.pop();
+console.log(elem,elem1);
