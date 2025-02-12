@@ -1,11 +1,45 @@
+let user = { name: "John" };
+let admin = { name: "Admin" };
 
-// i = i ? i < 0 ? Math.max(0, len + i) : i:0;
+function sayHi() {
+  console.log(this.name);
+}
 
-elem=new Array;
-elem=[1,2,3,4,5];
-elem1=new Array();
+user.f = sayHi;
+admin.f = sayHi;
 
-elem1=elem.slice();
+user.f();  // John
+admin.f(); // Admin
 
-elem1.pop();
-console.log(elem,elem1);
+user = {
+    firstName: "Ilya",
+    sayHi() {
+      let arrow = () => console.log(this.firstName);
+      arrow();
+    }
+  };
+  
+  user.sayHi(); // Ilya
+  
+
+  let calculator = {
+    sum(a,b){
+        console.log(a+b);
+    },
+    mul(a,b){
+        console.log(a*b);
+    },
+    read(){
+        process.stdin.setEncoding("utf8");
+        process.stdin.on("data", function(input) {
+        var input;
+        console.log(input.trim());
+        process.exit();
+        });
+    }
+  };
+  
+  input=calculator.read();
+  console.log(input);
+//   alert( calculator.sum() );
+//   alert( calculator.mul() );
