@@ -1,11 +1,57 @@
+let message = "Hello!";
+let phrase = message;
 
-// i = i ? i < 0 ? Math.max(0, len + i) : i:0;
+phrase="TEST!!";
+console.log(message);
 
-elem=new Array;
-elem=[1,2,3,4,5];
-elem1=new Array();
+let user = { name: 'John' };
 
-elem1=elem.slice();
+let admin = user    // copy the reference;
 
-elem1.pop();
-console.log(elem,elem1);
+admin.name = 'Pete'; // changed by the "admin" reference
+
+console.log(user.name);
+
+user.name = 'John';
+admin = {};
+for(let i in user){
+    let key = i;
+    value = user[i];
+    admin[key]=value;
+
+}
+admin.name = 'Pete';
+console.log(user);
+console.log(admin);
+
+
+
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copies all properties from permissions1 and permissions2 into user
+Object.assign(user, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
+alert(user.name); // John
+alert(user.canView); // true
+alert(user.canEdit); // true
+
+
+function marry(man, woman) {
+    woman.husband = man;
+    man.wife = woman;
+  
+    return {
+      father: man,
+      mother: woman
+    }
+  }
+  
+  let family = marry({
+    name: "John"
+  }, {
+    name: "Ann"
+  });
