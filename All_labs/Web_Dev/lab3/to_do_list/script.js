@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('Input');
     const addButton = document.getElementById('addButton');
     const list = document.getElementById('List');
-  
+    const div=document.getElementById("divInput");
+
     function createDeleteButton(li) {
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'X';
@@ -29,16 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
     addButton.addEventListener('click', function() {
       const taskText = input.value.trim();
       if (taskText === '') return;
-  
+      
+
       const li = document.createElement('li');
       li.appendChild(createCheckBox());
-  
+    
       const span = document.createElement('span');
       span.textContent = " " + taskText + " "; 
       li.appendChild(span);
   
       li.appendChild(createDeleteButton(li));
-      list.appendChild(li);
+      list.prepend(li);
       
       input.value = '';
     });
