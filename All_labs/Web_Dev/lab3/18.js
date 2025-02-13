@@ -23,6 +23,8 @@ user = {
   
 
   let calculator = {
+    a: 0,
+    b: 0,
     sum(a,b){
         console.log(a+b);
     },
@@ -30,16 +32,11 @@ user = {
         console.log(a*b);
     },
     read(){
-        process.stdin.setEncoding("utf8");
-        process.stdin.on("data", function(input) {
-        var input;
-        console.log(input.trim());
-        process.exit();
-        });
+        prompt("Enter a number", this.a);
+        prompt("Enter a number", this.b);
     }
   };
   
-  input=calculator.read();
-  console.log(input);
-//   alert( calculator.sum() );
-//   alert( calculator.mul() );
+  calculator.read();
+  calculator.sum();
+  calculator.mul();

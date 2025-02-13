@@ -1,11 +1,52 @@
+function User(name) {
+    this.name = name;
+    this.isAdmin = false;
+}
 
-// i = i ? i < 0 ? Math.max(0, len + i) : i:0;
+let user = new User("Jack");
 
-elem=new Array;
-elem=[1,2,3,4,5];
-elem1=new Array();
+// console.log(user.name); // Jack
+// console.log(user.isAdmin); // false
 
-elem1=elem.slice();
+function User() {
+    if(new.target){
+        console.log("GGGGGnew.target");
+    }else{
+        console.log(new.target);
+    }
+}
 
-elem1.pop();
-console.log(elem,elem1);
+User(); // new.target
+
+
+function A() { return {};}
+function B() { return {};}
+
+let a = new A();
+let b = new B();
+
+console.log( new A() ,new B() ); 
+
+
+function Calculator() {
+    this.read = function() {
+      this.a = +prompt('a?', 0);
+      this.b = +prompt('b?', 0);
+    };
+  
+    sum = function() {
+      return this.a + this.b;
+    };
+  
+    mul = function() {
+      return this.a * this.b;
+    };
+  }
+  
+  let calculator = new Calculator();
+
+  calculator.read();
+  
+  console.log("Sum=" + calculator.sum());
+  console.log("Mul=" + calculator.mul());
+  
