@@ -29,8 +29,8 @@ public class StringSplitTest {
 
         // Print out the shirts
         System.out.println("=== Shirt List ===");
-        for (Shirt shirt : shirtList) {
-            System.out.println(shirt.toString());
+        for (int i=0; i<shirtList.size();i++) {
+            System.out.println(shirtList.get(i).toString());
         }
         
     }

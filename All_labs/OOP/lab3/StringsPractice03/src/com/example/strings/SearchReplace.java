@@ -28,7 +28,7 @@ public class SearchReplace {
             while ((line = reader.readLine()) != null) {
                 // Create a matcher
                 Matcher match = pattern.matcher(line);
-                // Find a match
+
                 if(match.find()){
                     String newStart = replaceTag(match.group(1), targetTag, replaceTag);
                     newStart = replaceAttribute(newStart, attribute, value);
@@ -37,7 +37,7 @@ public class SearchReplace {
                     System.out.printf("%3d %s\n", c, newLine);
                 }   
                 else {
-                    System.out.printf("%3d %s\n", c, line); // Печатает оригинальную строку
+                    System.out.printf("%3d %s\n", c, line);
                 }
                 c++;
             }
@@ -67,7 +67,7 @@ public class SearchReplace {
     public String replaceAttribute (String tag, String attribute, String value) {
 
         Pattern p =  Pattern.compile(attribute + "=" + "\".*?\"");
-        Matcher m = p.matcher(tag); // tag is text to replace
+        Matcher m = p.matcher(tag);
         
         if (m.find()) {
             return m.replaceFirst (attribute + "=" + "\"" + value +"\"");
