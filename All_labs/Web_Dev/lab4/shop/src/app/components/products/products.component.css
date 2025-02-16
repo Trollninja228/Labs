@@ -42,7 +42,7 @@
   
   .gallery {
     display: flex;
-    flex-direction: column;
+    flex-direction: wrap;
     justify-content: center;
     align-items: center;
     gap: 5px;
