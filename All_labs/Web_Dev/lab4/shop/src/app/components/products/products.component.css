@@ -42,15 +42,17 @@
   
   .gallery {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
     margin-top: 10px;
   }
   
   .gallery img {
-    width: 60px;
-    height: auto;
+    width: 100px;
     border-radius: 5px;
+    object-fit:contain;
   }
-  
+
   
