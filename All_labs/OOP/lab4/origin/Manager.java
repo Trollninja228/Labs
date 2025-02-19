@@ -70,10 +70,14 @@ public class Manager extends Employee{
         
         return true;
       }
-    void printStaff(){
+    public void printStaff(Manager man){
+        System.out.println(man.getName());
         for(int i=0;i<staff.length;i++){
             if(staff[i]!=null){
                 System.out.println(staff[i].getName());
+                System.out.println(staff[i].getEmpID());
+                System.out.println(staff[i].getSSN());
+                System.out.println(staff[i].getSalary());
             }
         }
     }

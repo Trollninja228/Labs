@@ -14,40 +14,36 @@ public class Test {
         emp.setName("Jane Brown");
         emp.raiseSalary(50);
 
-        // printEmployee(emp);
-        // printEmployee(emp1);
-        // printEmployee(emp2);
-        // printEmployee(emp3);
+        printEmployee(emp);
+        printEmployee(emp1);
+        printEmployee(emp2);
+        printEmployee(emp3);
         
 
-        Employee employee = new Employee(1, "Aba", "123", 999999.99);
-        Manager manager = new Manager( 2, "aba", "2432", 32423.23, "Software",new Employee[20]);
+        Employee employee = new Employee(1, "Bob", "123456789", 100000);
+        Manager manager = new Manager( 2, "Luli", "987654321", 88005553, "Ad",new Employee[20]);
+
+        boolean test = manager.addEmployee(employee);
         
+        System.out.println((test) ? ("yes") : ("no"));
+        Employee employee2 = new Employee(2, "Li", "123321231", 55333);
+        test = manager.addEmployee(employee2);
+
+        System.out.println((test) ? ("yes") : ("no"));
+
+        test = manager.addEmployee(employee2);
+        System.out.println((test) ? ("yes") : ("no"));
+
+        manager.printStaff(manager);
+
+        manager.printLenStaff();
+
         System.out.println();
-        System.out.println();
-        System.out.println();
-        manager.printStaff();
-        // boolean test = manager.addEmployee(employee);
-        
-        // System.out.println((test) ? ("yes") : ("no"));
-        // Employee employee2 = new Employee(2, "aba2", "fae", 789655.36);
-        // test = manager.addEmployee(employee2);
+        manager.removeEmployee(employee2, manager);
 
-        // System.out.println((test) ? ("yes") : ("no"));
+        manager.printLenStaff();
 
-        // test = manager.addEmployee(employee2);
-        // System.out.println((test) ? ("yes") : ("no"));
-
-        // manager.printStaff();
-
-        // manager.printLenStaff();
-
-        // System.out.println();
-        // manager.removeEmployee(employee2, manager);
-
-        // manager.printLenStaff();
-
-        // manager.printStaff();
+        manager.printStaff(manager);
 
     }
 
