@@ -55,4 +55,5 @@ public class Test {
         System.out.println("SSN: "+emp.getSSN());
         System.out.println("Salary: "+emp.getSalary());
     }
+
 }

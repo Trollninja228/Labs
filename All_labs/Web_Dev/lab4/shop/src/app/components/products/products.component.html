@@ -1,7 +1,43 @@
-<div class="product-list">
-    <div *ngFor="let product of products" class="product-card">
+<header>
+  <div *ngFor="let product of array1">
+    <a href="#div1">{{product.id}}</a>
+  </div>
+  <div *ngFor="let product of array2">
+    <a href="#div2">{{product.id}}</a>
+  </div>
+</header>
 
-      <img [src]="product.image" [alt]="product.name">
+<div class="product-list">
+    <div *ngFor="let product of array1" class="product-card" id="div1">
+
+
+      <img [src]="product.image" [alt]="product.name" id="{{product.id}}">
+      
+      <h3>{{ product.name }}</h3>
+
+      <p>{{ product.description }}</p>
+      
+      <p>Рейтинг: {{ product.rating }} ★</p>
+      
+      <a [href]="product.link" target="_blank">Купить на Kaspi.kz</a>
+
+      <div class="gallery" *ngIf="product.gallery && product.gallery.length">
+        <img *ngFor="let img of product.gallery" [src]="img" [alt]="product.name">
+      </div>
+
+      <div class="share-buttons">
+        <a [href]="'https://wa.me/?text=' + encodeURIComponent(product.link)" target="_blank">
+            Поделиться в WhatsApp
+          </a>
+        <a [href]="'https://t.me/share/url?url=' + encodeURIComponent(product.link)" target="_blank">
+          Поделиться в Telegram
+        </a>
+      </div>
+    </div>
+    <div *ngFor="let product of array2" class="product-card" id="div2">
+
+
+      <img [src]="product.image" [alt]="product.name" >
       
       <h3>{{ product.name }}</h3>
 

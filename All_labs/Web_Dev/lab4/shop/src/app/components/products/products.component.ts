@@ -141,4 +141,20 @@ export class ProductsComponent {
       ]
     }
   ];
+  array1: Product[]=[
+    this.products[0],
+    this.products[1],
+    this.products[2],
+    this.products[3],
+    this.products[4],
+  ]
+
+  array2:Product[]=[
+    this.products[5],
+    this.products[6],
+    this.products[7],
+    this.products[8],
+    this.products[9],
+  ]
+  
 }
