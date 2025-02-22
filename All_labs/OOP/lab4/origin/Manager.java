@@ -6,6 +6,7 @@ public class Manager extends Employee{
     private Employee[] staff;
     private int employeeCount = 0;
 
+    
     public Manager(int empId, String name,String ssn, double salary, String deptName, Employee[] staff){
         super(empId, name, ssn, salary);
         this.deptName = deptName;
