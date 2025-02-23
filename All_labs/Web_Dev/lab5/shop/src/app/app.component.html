@@ -1,0 +1,20 @@
+<h1>Магазин</h1>
+
+<div class="categories">
+  <!-- Цикл по массиву категорий -->
+  <button 
+    *ngFor="let cat of categories" 
+    (click)="selectCategory(cat)"
+    [class.selected]="selectedCategory?.id === cat.id">
+    {{ cat.name }}
+  </button>
+</div>
+
+<div class="products" *ngIf="selectedCategory">
+  <h2>Товары категории "{{ selectedCategory?.name }}"</h2>
+  <app-product-list 
+    [products]="selectedCategory?.products || []"
+    (deleteProduct)="removeProduct($event)">
+  </app-product-list>
+</div>
+
