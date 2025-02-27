@@ -20,4 +20,14 @@ export class ProductItemComponent {
   removeProduct() {
     this.remove.emit(this.product.id);
   }
+  Discount(){
+    if(this.product.isDiscounted){
+      this.product.price/=0.8;
+      this.product.isDiscounted=false;
+    }else{
+      this.product.price*=0.8;
+      this.product.isDiscounted=true;
+    }
+    
+  }
 }

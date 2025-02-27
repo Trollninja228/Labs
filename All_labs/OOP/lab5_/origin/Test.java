@@ -3,7 +3,7 @@ package origin;
 import com.domain.example.Engineer;
 import com.domain.example.Admin;
 import com.domain.example.Director;
-import com.example.business.*;;
+import com.example.business.*;
 
 
 public class Test {

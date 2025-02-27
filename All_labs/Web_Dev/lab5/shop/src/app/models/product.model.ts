@@ -5,6 +5,8 @@ export interface ProductItem {
   image: string;
   likes: number;
   link: string;
+  price: number;
+  isDiscounted: boolean;
 }
 
 export interface Category {
