@@ -1,9 +1,22 @@
-<h2>Альбомы</h2>
-<ul>
-  <li *ngFor="let album of albums">
-    <span (click)="onSelect(album)" style="cursor:pointer;">
-      {{ album.title }}
-    </span>
-    <button (click)="onDelete(album.id)">Delete</button>
-  </li>
-</ul>
+<div class="albums-container">
+  <h2>Список альбомов</h2>
+
+  <div class="create-album">
+    <h3>Создать новый альбом</h3>
+    <input type="text" [(ngModel)]="newAlbumTitle" placeholder="Введите название альбома">
+    <button (click)="createAlbum()">Создать</button>
+  </div>
+
+  <hr>
+
+  <ul>
+    <li *ngFor="let album of albums">
+      <span class="album-title" (click)="selectAlbum(album)">
+        {{ album.title }}
+      </span>
+      <button class="delete-btn" (click)="deleteAlbum(album.id)">Удалить</button>
+    </li>
+  </ul>
+
+  <a routerLink="/home" class="nav-back">Вернуться на главную</a>
+</div>

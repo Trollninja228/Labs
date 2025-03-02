@@ -1,25 +1,68 @@
-ul {
+.albums-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .create-album {
+    margin-bottom: 20px;
+  }
+  
+  .create-album input {
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 70%;
+  }
+  
+  .create-album button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  ul {
     list-style: none;
     padding: 0;
-}
-
-li {
-padding: 8px;
-border-bottom: 1px solid #ccc;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-span {
-flex: 1;
-}
-
-button {
-background-color: #dc3545;
-color: #fff;
-border: none;
-padding: 5px 10px;
-cursor: pointer;
-border-radius: 4px;
-}
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .album-title {
+    cursor: pointer;
+    font-size: 18px;
+    flex: 1;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .nav-back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-back:hover {
+    background-color: #0056b3;
+  }
+  

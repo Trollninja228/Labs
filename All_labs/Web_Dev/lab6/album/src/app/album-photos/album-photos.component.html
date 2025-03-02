@@ -1,5 +1,11 @@
-<h2>Фотографии альбома</h2>
-<div class="photos">
-  <img *ngFor="let photo of photos" [src]="photo.thumbnailUrl" [alt]="photo.title" />
+<div class="photos-container">
+  <h2>Фотографии альбома</h2>
+  <div class="add-photo-form">
+    <input type="text" [(ngModel)]="newPhotoUrl" placeholder="Введите URL нового фото">
+    <button (click)="addPhoto()">Добавить фото</button>
+  </div>
+  <div class="photos">
+    <img *ngFor="let photo of photos" [src]="photo.thumbnailUrl" [alt]="photo.title">
+  </div>
+  <button (click)="onReturn()">Вернуться</button>
 </div>
-<button (click)="onReturn()">Return</button>

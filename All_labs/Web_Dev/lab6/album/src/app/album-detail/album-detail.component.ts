@@ -13,7 +13,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./album-detail.component.css']
 })
 export class AlbumDetailComponent implements OnInit {
-  album!: Album;
+  album: Album | undefined;
+  updatedTitle: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -23,20 +24,34 @@ export class AlbumDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.albumsService.getAlbum(id).subscribe((data: Album) => {
+    this.albumsService.getAlbum(id).subscribe((data: Album | undefined) => {
       this.album = data;
+      if (this.album) {
+        this.updatedTitle = this.album.title;
+      }
     });
   }
 
-  onSave(): void {
-    this.albumsService.updateAlbum(this.album).subscribe((updatedAlbum: Album) => {
-      this.album = updatedAlbum;
-      alert('Album updated!');
-    });
+  save(): void {
+    if (this.album) {
+      this.album.title = this.updatedTitle;
+      this.albumsService.updateAlbum(this.album).subscribe(updated => {
+        if (updated) {
+          alert('Название альбома обновлено!');
+        } else {
+          alert('Ошибка обновления!');
+        }
+      });
+    }
   }
-  
 
-  onReturn(): void {
+  returnToList(): void {
     this.router.navigate(['/albums']);
   }
+  goToPhotos(): void {
+    if (this.album) {
+      this.router.navigate(['/albums', this.album.id, 'photos']);
+    }
+  }
+  
 }

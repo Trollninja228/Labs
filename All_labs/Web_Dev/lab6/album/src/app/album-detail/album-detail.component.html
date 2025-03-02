@@ -1,12 +1,23 @@
-<div *ngIf="album">
+<div *ngIf="album; else notFound">
   <h2>Детали альбома</h2>
   <p><strong>ID:</strong> {{ album.id }}</p>
-  <p><strong>User ID:</strong> {{ album.userId }}</p>
-  <div>
-    <label>Title: </label>
-    <input [(ngModel)]="album.title">
+  <p><strong>Текущее название:</strong> {{ album.title }}</p>
+  
+  <div class="edit-form">
+    <label for="title">Новое название:</label>
+    <input id="title" type="text" [(ngModel)]="updatedTitle">
   </div>
-  <button (click)="onSave()">Save</button>
-  <button (click)="onReturn()">Return</button>
-  <a [routerLink]="['/albums', album.id, 'photos']">Photos</a>
+
+  <div class="buttons">
+    <button (click)="save()">Сохранить изменения</button>
+    <button (click)="returnToList()">Вернуться к списку</button>
+  </div>
+  <!-- Новая кнопка-ссылка на фото -->
+  <button (click)="goToPhotos()" class="btn-photo">Фото</button>
+
 </div>
+
+<ng-template #notFound>
+  <p>Альбом не найден!</p>
+  <button (click)="returnToList()">Вернуться к списку</button>
+</ng-template>

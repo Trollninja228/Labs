@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlbumsService, Photo } from '../albums.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-album-photos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './album-photos.component.html',
   styleUrls: ['./album-photos.component.css']
 })
 export class AlbumPhotosComponent implements OnInit {
   photos: Photo[] = [];
+  newPhotoUrl: string = '';
+  albumId!: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,14 +23,26 @@ export class AlbumPhotosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const albumId = Number(this.route.snapshot.paramMap.get('id'));
-    this.albumsService.getPhotosForAlbum(albumId).subscribe((data: Photo[]) => {
+    this.albumId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadPhotos();
+  }
+
+  loadPhotos(): void {
+    this.albumsService.getPhotosForAlbum(this.albumId).subscribe(data => {
       this.photos = data;
     });
   }
 
+  addPhoto(): void {
+    if (this.newPhotoUrl.trim()) {
+      this.albumsService.addPhotoToAlbum(this.albumId, this.newPhotoUrl).subscribe(newPhoto => {
+        this.newPhotoUrl = '';
+        this.loadPhotos();
+      });
+    }
+  }
+
   onReturn(): void {
-    const albumId = this.route.snapshot.paramMap.get('id');
-    this.router.navigate(['/albums', albumId]);
+    this.router.navigate(['/albums', this.albumId]);
   }
 }
