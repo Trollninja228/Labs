@@ -1,0 +1,25 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+padding: 8px;
+border-bottom: 1px solid #ccc;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+span {
+flex: 1;
+}
+
+button {
+background-color: #dc3545;
+color: #fff;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+border-radius: 4px;
+}
