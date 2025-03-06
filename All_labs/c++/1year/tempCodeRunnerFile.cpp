@@ -1,0 +1,2 @@
+
+	srand(ti
