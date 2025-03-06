@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,17 +69,35 @@ public class LoginPage implements ActionListener {
         if (e.getSource()==logButton){
 
             String ID = IDField.getText();
-            String pass = String.valueOf( PasswordField.getPassword());
+            String pass = String.valueOf(PasswordField.getPassword());
 
             IDField.setText("");
             PasswordField.setText("");
 
+
             if(logInfo.containsKey(ID)){
+                if (logInfo.get(ID).equals(pass)) {
+
+                    
+                    MessageLabel.setForeground(Color.green);
+                    MessageLabel.setText("Success");
+                    frame.dispose();
+                    WelcomePage WP = new WelcomePage(ID);
+                    
+                }else{
+                    MessageLabel.setForeground(Color.red);
+                    MessageLabel.setText("Incorrect");
+                }
                 
+            }else{
+                MessageLabel.setForeground(Color.red);
+                MessageLabel.setText("User is undefined");
             }
         }
     }
     public static void main(String[] args){
-        LoginPage l = new LoginPage(new HashMap());
+        IDandPasswords temp = new IDandPasswords();
+        HashMap <String, String> h = temp.getLoginInfo();
+        LoginPage l = new LoginPage(h);
     }
 }

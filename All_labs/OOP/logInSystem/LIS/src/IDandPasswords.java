@@ -7,7 +7,7 @@ public class IDandPasswords {
 
         logInfo.put("admin", "admin");
         logInfo.put("chibi", "KNIGHT");
-        logInfo.put("lol", "fall");
+        logInfo.put("land", "fall");
         
     }
 
