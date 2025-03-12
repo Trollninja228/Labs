@@ -3,7 +3,7 @@ class Box {
     Box(int s) { size = s; }
     }
     public class Laser {
-    String[] args) { public static void main(String
+     public static void main(String[] args){}
     Box bl= new Box (5);
     Box [] ba go (b1, new Box (6));
     ba [0] bl;
