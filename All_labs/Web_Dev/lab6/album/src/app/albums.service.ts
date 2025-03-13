@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 export interface Album {
   id: number;
@@ -18,63 +20,44 @@ export interface Photo {
   providedIn: 'root'
 })
 export class AlbumsService {
-  // Локальный массив альбомов
-  private albums: Album[] = [
-    { id: 1, title: 'Первый альбом' },
-    { id: 2, title: 'Второй альбом' }
-  ];
-  private nextAlbumId = 3;
+  private apiUrl = 'https://jsonplaceholder.typicode.com/albums'; // URL для альбомов
 
-  // Локальное хранилище фотографий для каждого альбома
-  private albumPhotos: { [albumId: number]: Photo[] } = {
-    1: [
-      {
-        albumId: 1,
-        id: 1,
-        title: "accusamus beatae ad facilis cum similique qui sunt",
-        url: "https://via.placeholder.com/600/92c952",
-        thumbnailUrl: "https://via.placeholder.com/150/92c952"
-      },
-      {
-        albumId: 1,
-        id: 2,
-        title: "reprehenderit est deserunt velit ipsam",
-        url: "https://via.placeholder.com/600/771796",
-        thumbnailUrl: "https://via.placeholder.com/150/771796"
-      },
-      {
-        albumId: 1,
-        id: 3,
-        title: "officia porro iure quia iusto qui ipsa ut modi",
-        url: "https://via.placeholder.com/600/24f355",
-        thumbnailUrl: "https://via.placeholder.com/150/24f355"
-      },
-      {
-        albumId: 1,
-        id: 4,
-        title: "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
-        url: "https://via.placeholder.com/600/d32776",
-        thumbnailUrl: "https://via.placeholder.com/150/d32776"
-      },
-      {
-        albumId: 1,
-        id: 5,
-        title: "natus nisi omnis corporis facere molestiae rerum in",
-        url: "https://via.placeholder.com/600/f66b97",
-        thumbnailUrl: "https://via.placeholder.com/150/f66b97"
-      }
-    ]
-  };
-  // Для генерации id для новых фото по каждому альбому
-  private nextPhotoId: { [albumId: number]: number } = {
-    1: 6
-  };
+  private albums: Album[] = [];
+  private nextAlbumId = 1;
 
-  constructor() {}
+  private albumPhotos: { [albumId: number]: Photo[] } = {};
+  private nextPhotoId: { [albumId: number]: number } = {};
 
-  // Методы для альбомов
+  constructor(private http: HttpClient) {
+    // Вместо загрузки из жестко закодированного массива, мы можем сразу попытаться загрузить альбомы с сервера.
+    this.fetchAlbums().subscribe();
+  }
+
+  // Метод, который делает HTTP-запрос для загрузки альбомов
+  fetchAlbums(): Observable<Album[]> {
+    return this.http.get<Album[]>(this.apiUrl).pipe(
+      tap((data: Album[]) => {
+        // Сохраняем полученные альбомы в локальном массиве
+        this.albums = data;
+        if (data.length > 0) {
+          // Определяем следующий доступный ID
+          this.nextAlbumId = Math.max(...data.map(a => a.id)) + 1;
+        } else {
+          this.nextAlbumId = 1;
+        }
+        console.log('Загруженные альбомы:', this.albums);
+      })
+    );
+  }
+
+  // Если нужно вернуть альбомы как Observable
   getAlbums(): Observable<Album[]> {
-    return of(this.albums);
+    // Если альбомы уже загружены, возвращаем их; иначе можно вызвать fetchAlbums()
+    if (this.albums.length > 0) {
+      return of(this.albums);
+    } else {
+      return this.fetchAlbums();
+    }
   }
 
   getAlbum(id: number): Observable<Album | undefined> {
@@ -103,7 +86,6 @@ export class AlbumsService {
     const index = this.albums.findIndex(a => a.id === id);
     if (index !== -1) {
       this.albums.splice(index, 1);
-      // Удаляем все фото, если есть
       delete this.albumPhotos[id];
       delete this.nextPhotoId[id];
       return of(true);
@@ -111,21 +93,19 @@ export class AlbumsService {
     return of(false);
   }
 
-  // Методы для фотографий
   getPhotosForAlbum(albumId: number): Observable<Photo[]> {
     return of(this.albumPhotos[albumId] || []);
   }
-
 
   addPhotoToAlbum(albumId: number, photoUrl: string): Observable<Photo> {
     if (!this.nextPhotoId[albumId]) {
       this.nextPhotoId[albumId] = 1;
     }
-    const newId = this.nextPhotoId[albumId]++;  // Получаем новый id и инкрементируем счетчик
+    const newId = this.nextPhotoId[albumId]++;
     const newPhoto: Photo = {
       albumId: albumId,
       id: newId,
-      title: `Фото ${newId}`,  // Формируем название на основе id
+      title: `Фото ${newId}`,
       url: photoUrl,
       thumbnailUrl: photoUrl
     };
@@ -135,5 +115,4 @@ export class AlbumsService {
     this.albumPhotos[albumId].push(newPhoto);
     return of(newPhoto);
   }
-  
 }
