@@ -49,29 +49,29 @@ import math
 # Task 3
 
 
-# while True:
-#     try:
-#         a=int(input("Enter the number: "))
-#         if(a<1):
-#             print("Incorrect value! Please, try again: ")
-#             continue
-#         else:
-#             break
-#     except ValueError:
-#         print("Incorrect value! Please, try again: ")
+while True:
+    try:
+        a=int(input("Enter the number: "))
+        if(a<1):
+            print("Incorrect value! Please, try again: ")
+            continue
+        else:
+            break
+    except ValueError:
+        print("Incorrect value! Please, try again: ")
     
-# i=0
-# b=1
-# c=0
-# while c<a:
-#     c+=1
-#     print(i)
-#     if(i==0):
-#         i+=1
-#         print(i)
-#     else:
-#         i+=b
-#         b=i-b
+i=0
+b=1
+c=0
+while c<a:
+    c+=1
+    print(i)
+    if(i==0):
+        i+=1
+        print(i)
+    else:
+        i+=b
+        b=i-b
 
 
 # Task 4
@@ -124,38 +124,38 @@ import math
 
 # Task 7
 
-def add():
-    a = int(input("Enter first number: "))
-    b = int(input("Enter second number: "))
-    print("Result:", a + b)
+# def add():
+#     a = int(input("Enter first number: "))
+#     b = int(input("Enter second number: "))
+#     print("Result:", a + b)
 
-def subtract():
-    a = int(input("Enter first number: "))
-    b = int(input("Enter second number: "))
-    print("Result:", a - b)
+# def subtract():
+#     a = int(input("Enter first number: "))
+#     b = int(input("Enter second number: "))
+#     print("Result:", a - b)
 
-def multiply():
-    a = int(input("Enter first number: "))
-    b = int(input("Enter second number: "))
-    print("Result:", a * b)
+# def multiply():
+#     a = int(input("Enter first number: "))
+#     b = int(input("Enter second number: "))
+#     print("Result:", a * b)
 
-while True:
-    print("Menu:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Exit")
+# while True:
+#     print("Menu:")
+#     print("1. Add")
+#     print("2. Subtract")
+#     print("3. Multiply")
+#     print("4. Exit")
 
-    choice = input("Select an option (1-4): ")
+#     choice = input("Select an option (1-4): ")
 
-    if choice == "1":
-        add()
-    elif choice == "2":
-        subtract()
-    elif choice == "3":
-        multiply()
-    elif choice == "4":
-        print("Exiting...")
-        break
-    else:
-        print("Invalid choice, please enter a number between 1 and 4.")
+#     if choice == "1":
+#         add()
+#     elif choice == "2":
+#         subtract()
+#     elif choice == "3":
+#         multiply()
+#     elif choice == "4":
+#         print("Exiting...")
+#         break
+#     else:
+#         print("Invalid choice, please enter a number between 1 and 4.")
