@@ -1,4 +1,4 @@
-package com.example;
+package AbstractBanking.src.com.example;
 
 public class Customer {
 

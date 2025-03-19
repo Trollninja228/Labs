@@ -1,13 +1,19 @@
-package com.example;
+package EnumBanking.src.com.example;
 
 public class Bank {
+    
+    private static final Bank instance = new Bank();
 
     private Customer[] customers;
     private int numberOfCustomers;
 
-    public Bank() {
+    private Bank() {
         customers = new Customer[10];
         numberOfCustomers = 0;
+    }
+    
+    public static Bank getInstance() {
+        return instance;
     }
 
     public void addCustomer(String f, String l) {
