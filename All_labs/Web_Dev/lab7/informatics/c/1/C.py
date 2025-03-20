@@ -1,8 +1,8 @@
+import math
 
-a=input()
-b=input()
-c=0
-for i in a:
-    if(i==b):
-        c+=1
-print(c)
+a=int(input())
+b=int(input())
+
+for i in range(a,b+1):
+    if(math.sqrt(i)%1==0):
+        print(i,end=' ')
