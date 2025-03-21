@@ -1,18 +1,27 @@
+def search_matches(str,pat):
+    k=len(pat)
+    c=0
+    i=0
+    while i+k<=len(str):
+        if(str[i:i+k]):
+            c+=1
+        i+=1
+    return c
+
 def minion_game(string):
     # your code goes here
     vowels=["A","E","I","O","U"]
-    s=""
-    st=0
+    i=0
+    stu=0
     k=0
-    size=1
-    while len(s)<len(string):
-        for i in string:
-            if i in vowels:
+    while i<len(string):
+        if string[i] in vowels:
+            size=0
+            while size<=len(string):
+                k+=search_matches(string,string[])
                 
         
 
 if __name__ == '__main__':
-    string="abcdefg"
-    print(string[1:2])
     s = input()
     minion_game(s)
