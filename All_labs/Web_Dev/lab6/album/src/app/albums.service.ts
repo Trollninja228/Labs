@@ -20,7 +20,7 @@ export interface Photo {
   providedIn: 'root'
 })
 export class AlbumsService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/albums'; // URL для альбомов
+  private apiUrl = 'localhost:8000'; // URL для альбомов
 
   private albums: Album[] = [];
   private nextAlbumId = 1;
