@@ -1,16 +1,24 @@
-package com.example;
+package PetComposition.src.com.example;
 
-public class Cat extends Animal implements Pet {
+public class Cat extends Animal implements Pet,Ambulatory{
     
-    private String name;
+    private Nameable nameable = new NameableImpl();
     
+    private Ambulatory ambulatory;
+
+
     public Cat() {
         this("Fluffy");
     }
     
     public Cat(String name) {
-        super(4);
-        this.name = name;
+        ambulatory =new AmbulatorImpl(4);
+        this.nameable.setName(name);
+    }
+
+    @Override
+    public void walk() {
+        ambulatory.walk();
     }
 
     @Override
@@ -19,18 +27,18 @@ public class Cat extends Animal implements Pet {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public void setName(String name) {
+        this.nameable.setName(name);    
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return this.nameable.getName(); 
     }
 
     @Override
     public void play() {
-        System.out.println(name + " likes to play with string.");
+        System.out.println(nameable.getName() + " likes to play with string.");
     }
     
 }

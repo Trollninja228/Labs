@@ -1,10 +1,6 @@
-package com.example;
+package PetComposition.src.com.example;
 
-interface Pet {
-
-    public String getName();
-
-    public void setName(String name);
+interface Pet extends Nameable{
 
     public void play();
     

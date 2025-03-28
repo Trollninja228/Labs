@@ -1,4 +1,4 @@
-package com.example;
+package PetComposition.src.com.example;
 
 public class PetMain {
 
@@ -7,33 +7,38 @@ public class PetMain {
         //test a spider with a spider reference
         Spider s = new Spider();
         s.eat();
-        s.walk();
+        AnimalWalk(s);
         //test a spider with an animal reference
         a = new Spider();
         a.eat();
-        a.walk();
+        AnimalWalk(a);
 
         Pet p;
 
         Cat c = new Cat("Tom");
         c.eat();
-        c.walk();
         c.play();
+
+        AnimalWalk(c);
+
         a = new Cat();
         a.eat();
-        a.walk();
         p = new Cat();
         p.setName("Mr. Whiskers");
         p.play();
 
+        AnimalWalk(a);
+
+
+
         Fish f = new Fish();
         f.setName("Guppy");
         f.eat();
-        f.walk();
         f.play();
         a = new Fish();
         a.eat();
-        a.walk();
+        AnimalWalk(a);
+        AnimalWalk(f);
 
 
         playWithAnimal(s);
@@ -41,6 +46,13 @@ public class PetMain {
         playWithAnimal(f);
     }
 
+    public static void AnimalWalk(Animal a){
+        if (a instanceof Ambulatory){
+            a.walk();
+        } else{
+            System.out.println("No legs");
+        }
+    }
     public static void playWithAnimal(Animal a) {
         if (a instanceof Pet) {
             Pet p = (Pet) a;
