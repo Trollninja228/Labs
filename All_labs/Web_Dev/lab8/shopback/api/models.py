@@ -15,6 +15,8 @@ class Product(models.Model):
     count = models.IntegerField()
     is_active = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', default=1)
+    image = models.URLField(max_length=1000,blank=True,null=True)
+    link = models.URLField(max_length=1000,blank=True,null=True)
 
     def __str__(self):
         return self.name

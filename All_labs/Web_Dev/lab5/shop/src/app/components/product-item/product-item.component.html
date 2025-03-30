@@ -1,4 +1,20 @@
-<div class="product-item">
+<div class="product-card">
+  <img [src]="product.image" [alt]="product.name" class="product-image">
+
+  <h3>{{ product.name }}</h3>
+
+  <p>{{ product.description }}</p>
+
+  <p>Цена: {{ product.price }} ₸</p>
+
+  <a [href]="product.link" target="_blank" class="product-link">
+    Перейти к товару
+  </a>
+</div>
+
+
+
+<!-- <div class="product-item">
     <a [href]="product.link" target="_blank">
       <img [src]="product.image" [alt]="product.name">
     </a>
@@ -11,5 +27,5 @@
     <button (click)="likeProduct()">Like</button>
     <button (click)="removeProduct()">Remove</button>
     <button (click)="Discount()">Discount</button>
-</div>
+</div> -->
   

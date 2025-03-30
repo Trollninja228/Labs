@@ -10,10 +10,6 @@
 </div>
 
 <div class="products" *ngIf="selectedCategory">
-  <h2>Товары категории "{{ selectedCategory?.name }}"</h2>
-  <app-product-list 
-    [products]="selectedCategory?.products || []"
-    (deleteProduct)="removeProduct($event)">
-  </app-product-list>
+  <h2>Товары категории "{{ selectedCategory.name }}"</h2>
+  <app-product-list [products]="selectedCategory.products"></app-product-list>
 </div>
-
