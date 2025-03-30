@@ -7,6 +7,7 @@ export interface ProductItem {
   link: string;
   price: number;
   isDiscounted: boolean;
+  count:number;
 }
 
 export interface Category {

@@ -8,5 +8,5 @@ import { ProductItem } from '../../models/product.model';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
-  @Input() product!: ProductItem;
+  @Input() product!: any;
 }

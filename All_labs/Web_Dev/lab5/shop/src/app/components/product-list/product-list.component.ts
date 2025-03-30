@@ -11,5 +11,5 @@ import { ProductItemComponent } from '../product-item/product-item.component';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  @Input() products: ProductItem[] = [];
+  @Input() products: any = [];
 }
