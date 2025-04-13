@@ -10,7 +10,8 @@ public class PurchasingAgent {
         Store store = Store.getInstance();
         Thread t = Thread.currentThread();
         System.out.println("Thread:"+t.getName()+","+t.getId());
-        synchronized(store){    
+        synchronized(store){ 
+        // {   
             if(store.getShirtCount()>=1){
                 if(store.authorizeCreditCard("1234", 15.00)){
                     Shirt shirt = store.takeShirt();

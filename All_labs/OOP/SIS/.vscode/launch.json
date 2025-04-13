@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "StudentRegistration",
+            "request": "launch",
+            "mainClass": "src.StudentRegistration",
+            "projectName": "SIS_438c80dd"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "SIS_438c80dd"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "com.example.SimpleJDBCExample",
+            "classpath": [
+                "${workspaceFolder}/All_labs/OOP/lab9/SimpleJDBCExample/src/com/example/lib/postgresql-42.7.5.jar",
+                "${workspaceFolder}/bin"
+            ]
+        }
+    ]
+}

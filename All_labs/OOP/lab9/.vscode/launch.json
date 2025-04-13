@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "EmployeeTestInteractive",
+            "request": "launch",
+            "mainClass": "EmployeeDAOJDBC.src.com.example.test.EmployeeTestInteractive",
+            "projectName": "lab9_2e0f542c"
+        },
+        {
+            "type": "java",
+            "name": "SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "SimpleJDBCExample.src.com.example.SimpleJDBCExample",
+            "projectName": "lab9_2e0f542c"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "com.example.SimpleJDBCExample",
+            "classpath": [
+                "${workspaceFolder}/All_labs/OOP/lab9/SimpleJDBCExample/src/com/example/lib/postgresql-42.7.5.jar",
+                "${workspaceFolder}/bin"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+<button (click)="getArrCom()">get companies</button>
+
+<div *ngFor="let x of arr">
+    <a [routerLink]="['/vacancy', x.id]">
+        {{x.id}}
+        {{x.name}}
+        {{x.description}}
+        {{x.city}}
+        {{x.address}}
+    </a>
+    <p *ngIf="!x.id">ID отсутствует!</p>
+</div>

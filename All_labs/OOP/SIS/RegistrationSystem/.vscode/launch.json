@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "StudentRegistration",
+            "request": "launch",
+            "mainClass": "src.StudentRegistration",
+            "projectName": "RegistrationSystem_60bd56da"
+        },
+        {
+            "type": "java",
+            "name": "RegisterPage",
+            "request": "launch",
+            "mainClass": "src.RegisterPage",
+            "projectName": "RegistrationSystem_60bd56da"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "RegistrationSystem_60bd56da"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "logInSQL_45484677"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "com.example.SimpleJDBCExample",
+            "classpath": [
+                "${workspaceFolder}/All_labs/OOP/lab9/SimpleJDBCExample/src/com/example/lib/postgresql-42.7.5.jar",
+                "${workspaceFolder}/bin"
+            ]
+        }
+    ]
+}

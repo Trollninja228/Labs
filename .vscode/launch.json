@@ -1,0 +1,50 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "EmployeeTestInteractive",
+            "request": "launch",
+            "mainClass": "EmployeeDAOJDBC.src.com.example.test.EmployeeTestInteractive",
+            "projectName": "Labs_a60a0e05"
+        },
+        {
+            "type": "java",
+            "name": "SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "SimpleJDBCExample.src.com.example.SimpleJDBCExample",
+            "projectName": "Labs_a60a0e05"
+        },
+        {
+            "type": "java",
+            "name": "ThreadInterrupttedMain",
+            "request": "launch",
+            "mainClass": "NetworkThreading.src.com.example.ThreadInterrupttedMain",
+            "projectName": "Labs_a60a0e05"
+        },
+        {
+            "type": "java",
+            "name": "SynchronizedMain",
+            "request": "launch",
+            "mainClass": "Synchronized.src.com.example.SynchronizedMain",
+            "projectName": "Labs_a60a0e05"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "SimpleJDBCExample.src.com.example.Test",
+            "projectName": "Labs_a60a0e05"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "com.example.SimpleJDBCExample",
+            "classpath": [
+                "${workspaceFolder}/All_labs/OOP/lab9/SimpleJDBCExample/src/com/example/lib/postgresql-42.7.5.jar",
+                "${workspaceFolder}/src"
+            ]
+        }
+    ]
+}

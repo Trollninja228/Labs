@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "logInSQL_45484677"
+        },
+        {
+            "type": "java",
+            "name": "Launch SimpleJDBCExample",
+            "request": "launch",
+            "mainClass": "com.example.SimpleJDBCExample",
+            "classpath": [
+                "${workspaceFolder}/All_labs/OOP/lab9/SimpleJDBCExample/src/com/example/lib/postgresql-42.7.5.jar",
+                "${workspaceFolder}/bin"
+            ]
+        }
+    ]
+}
